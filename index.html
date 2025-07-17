@@ -1,66 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="fontawesome-free-5.14.0-web/css/all.css">
+    <title>Portfolio | Priya</title>
     <link rel="stylesheet" href="css/main.css">
-    <title>Welcome to my Portfolio Project</title>
+   <!-- Replace old script -->
+   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        (function () {
+            emailjs.init('FhRAIYkh64IbqHjWS');
+
+        })();
+    </script>
+      <script type="module" src="/js/main.js" defer></script>
 </head>
-<body id="bg-home">
-    <!-- <div class="overlay"></div> -->
-    <header>
-        <div class="menu-btn" >
-            <div class="btn-line"></div>
-            <div class="btn-line"></div>
-            <div class="btn-line"></div>
-        </div>
-        <nav class="menu">
-            <div class="menu-branding">
-                <div class="portrait"></div>
-            </div>
-            <ul class="menu-nav">
-                <li class="nav-item current">
-                    <a href="index.html" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="about.html" class="nav-link">About Me</a>
-                </li>
-                <li class="nav-item">
-                    <a href="work.html" class="nav-link">My Work</a>
-                </li>
-                <li class="nav-item">
-                    <a href="contact.html" class="nav-link">How To Reach Me</a>
-                </li>
-            </ul>
+
+<body>
+
+    <header class="navbar">
+        <nav class="container">
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
         </nav>
     </header>
 
-    <main id="home">
-        <h1 class="lg-heading">
-            Priya 
-           <span class="text-secondary">Khanna</span> 
-        </h1>
-        <h2 class="sm-heading">
-          Senior Front End Developer currently working in Dubai
-          
-        </h2>
-        <div class="media-icons">
-
-            <a href="#">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#">
-                <i class="fab fa-github "></i>
-            </a>
-            <a href="#">
-                <i class="fab fa-twitter "></i>
-            </a>
-            <a href="#">
-                <i class="fab fa-instagram"></i>
-            </a>
+    <section class="hero">
+        <div class="container">
+            <div class="intro">
+                <h1>Hi, I'm Priya</h1>
+                <h2>Front-End Developer</h2>
+                <p>building modern, user-first experiences.</p>
+                <div class="btn-group">
+                    <a class="btn primary" href="assets/resume.pdf" download>View Resume</a>
+                    <a class="btn secondary" href="#contact">Contact Me</a>
+                </div>
+            </div>
+            <div class="avatar">
+                <img src="assets/avatar.png" alt="Priya illustration">
+            </div>
         </div>
-    </main>
-    <script src="js/main.js"></script>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>I'm a professional frontend developer passionate about enhancing digital products for online
+                accessibility and performance.</p>
+            <div class="tech-tags">
+                <span>JavaScript</span>
+                <span>Angular</span>
+                <span>Vue</span>
+                <span>React</span>
+                <span>TypeScript</span>
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>Figma</span>
+                <span>GitHub</span>
+                <span>Laravel</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>Freelance Portfolio Website</h3>
+                    <p>Developed a fully responsive and animated portfolio using HTML, CSS, and vanilla JavaScript with
+                        dynamic resume download and WhatsApp integration.</p>
+                    <div class="tags"><span>HTML</span> <span>CSS</span> <span>JavaScript</span></div>
+                </div>
+                <div class="project-card">
+                    <h3>Assignment Landing Page</h3>
+                    <p>Clean and responsive landing page for a fictional assignment portal.</p>
+                    <a href="https://github.com/priyakh87/assignment-landing-page" target="_blank">View Repository</a>
+                    <div class="tags"><span>HTML</span> <span>CSS</span></div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Location Search App</h3>
+                    <p>Vue 3-based app to search locations using OpenCage API with coordinate and map previews.</p>
+                    <a href="https://github.com/priyakh87/location-search" target="_blank">View Repository</a>
+                    <div class="tags"><span>Vue 3</span> <span>OpenCage</span> <span>JavaScript</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <div class="icons">
+                <img src="assets/icons/html.svg" alt="HTML">
+                <img src="assets/icons/css.svg" alt="CSS">
+                <img src="assets/icons/js.svg" alt="JavaScript">
+                <img src="assets/icons/react.svg" alt="React">
+                <img src="assets/icons/vue.svg" alt="Vue">
+                <img src="assets/icons/angularjs.svg" alt="Angular">
+                <img src="assets/icons/ts.svg" alt="TypeScript">
+                <img src="assets/icons/figma.svg" alt="Figma">
+                <img src="assets/icons/github.svg" alt="GitHub">
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact</h2>
+            <form id="contactForm">
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <textarea name="message" placeholder="Message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+            <p id="status"></p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Built with <span class="heart">&hearts;</span> by Priya</p>
+        </div>
+    </footer>
+
+   
 </body>
+
 </html>
