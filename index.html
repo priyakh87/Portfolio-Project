@@ -21,10 +21,29 @@
 <body>
 
     <header class="navbar">
-        <nav class="container">
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
+        <nav class="container flex-between">
+            <div class="nav-left">
+                <p class="m-2 email-section" style="display:inline-block;">
+                    <i class="fa fa-envelope"></i>
+                    <span >priyakh87@gmail.com</span>
+                </p>
+                <a href="https://github.com/priyakh87" target="_blank" aria-label="GitHub" rel="noopener" style="margin-left:16px;">
+                    <i class="fab fa-github fa-lg" ></i>
+                </a>
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark/light mode"
+                    style="margin-left:16px; background:none; border:none; cursor:pointer;">
+                    <i id="themeIcon" class="fas fa-moon fa-lg" ></i>
+                </button>
+            </div>
+            <button id="navToggle" aria-label="Open navigation" class="nav-hamburger">
+                <i class="fas fa-bars fa-lg"></i>
+                <i class="fas fa-close fa-lg"></i>
+            </button>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+            </div>
         </nav>
     </header>
 
@@ -40,7 +59,7 @@
                 </div>
             </div>
             <div class="avatar">
-                <img src="assets/avatar.png" alt="Priya illustration">
+                <img src="assets/profile-pic.jpeg" alt="Priya illustration">
             </div>
         </div>
     </section>
@@ -48,20 +67,11 @@
     <section id="about" class="about">
         <div class="container">
             <h2>About Me</h2>
-            <p>I'm a professional frontend developer passionate about enhancing digital products for online
-                accessibility and performance.</p>
-            <div class="tech-tags">
-                <span>JavaScript</span>
-                <span>Angular</span>
-                <span>Vue</span>
-                <span>React</span>
-                <span>TypeScript</span>
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>Figma</span>
-                <span>GitHub</span>
-                <span>Laravel</span>
-            </div>
+            <p>I’m a frontend developer specializing in building fast, accessible, and scalable digital products —
+                focused on delivering seamless user experiences and measurable business impact.</p>
+            <!-- <p>I'm a professional frontend developer passionate about enhancing digital products for online
+                accessibility and performance.</p> -->
+            
         </div>
     </section>
 
@@ -73,6 +83,7 @@
                     <h3>Freelance Portfolio Website</h3>
                     <p>Developed a fully responsive and animated portfolio using HTML, CSS, and vanilla JavaScript with
                         dynamic resume download and WhatsApp integration.</p>
+                        <a href="https://github.com/priyakh87/Portfolio-Project" target="_blank">View Repository</a>    
                     <div class="tags"><span>HTML</span> <span>CSS</span> <span>JavaScript</span></div>
                 </div>
                 <div class="project-card">
@@ -96,15 +107,29 @@
         <div class="container">
             <h2>Skills</h2>
             <div class="icons">
+               
+                <img src="assets/icons/js.svg" alt="JavaScript">
+                <img src="assets/icons/angularjs.svg" alt="Angular">
+                <img src="assets/icons/vue.svg" alt="Vue">
+                <img src="assets/icons/react.svg" alt="React">
+                <img src="assets/icons/ts.svg" alt="TypeScript">
                 <img src="assets/icons/html.svg" alt="HTML">
                 <img src="assets/icons/css.svg" alt="CSS">
-                <img src="assets/icons/js.svg" alt="JavaScript">
-                <img src="assets/icons/react.svg" alt="React">
-                <img src="assets/icons/vue.svg" alt="Vue">
-                <img src="assets/icons/angularjs.svg" alt="Angular">
-                <img src="assets/icons/ts.svg" alt="TypeScript">
                 <img src="assets/icons/figma.svg" alt="Figma">
                 <img src="assets/icons/github.svg" alt="GitHub">
+                <img src="assets/icons/laravel.svg" alt="Laravel">
+            </div>
+            <div class=" tech-tags">
+                <span>JavaScript</span>
+                <span>Angular</span>
+                <span>Vue</span>
+                <span>React</span>
+                <span>TypeScript</span>
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>Figma</span>
+                <span>GitHub</span>
+                <span>Laravel</span>
             </div>
         </div>
     </section>
@@ -115,7 +140,7 @@
             <form id="contactForm">
                 <input type="text" name="name" placeholder="Name" required>
                 <input type="email" name="email" placeholder="Email" required>
-                <textarea name="message" placeholder="Message" required></textarea>
+                <textarea name="message" placeholder="Message" required maxlength="300"></textarea>
                 <button type="submit">Send</button>
             </form>
             <p id="status"></p>
@@ -127,22 +152,22 @@
             <p>Built with <span class="heart">&hearts;</span> by Priya</p>
             <div class="social-links" style="margin-top:1rem;">
                 <a href="https://www.linkedin.com/in/priya-khanna-fed/" target="_blank" aria-label="LinkedIn" rel="noopener">
-                    <i class="fab fa-linkedin fa-2x" style="margin-right:12px; color:#0077b5;"></i>
+                    <i class="fab fa-linkedin fa-2x linkedin-icon"></i>
                 </a>
                 <a href="https://twitter.com/priyakh87" target="_blank" aria-label="Twitter" rel="noopener">
-                    <i class="fab fa-twitter fa-2x" style="margin-right:12px; color:#1da1f2;"></i>
+                    <i class="fab fa-twitter fa-2x x-icon" ></i>
                 </a>
                 <a href="https://dev.to/priya_khanna_44234bba65fb" target="_blank" aria-label="Dev.to" rel="noopener">
-                    <i class="fab fa-dev fa-2x" style="margin-right:12px; color:#0a0a0a; background:#fff; border-radius:4px; padding:2px;"></i>
+                    <i class="fab fa-dev fa-2x dev-icon"></i>
                 </a>
                 <a href="https://github.com/priyakh87" target="_blank" aria-label="GitHub" rel="noopener">
-                    <i class="fab fa-github fa-2x" style="color:#333;"></i>
+                    <i class="fab fa-github fa-2x" ></i>
                 </a>
             </div>
         </div>
     </footer>
 
-
+    
 </body>
 
 </html>

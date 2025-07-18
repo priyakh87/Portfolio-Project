@@ -40,9 +40,9 @@ function validateEmail(email) {
     return regex.test(email);
 }
     
-    
-    
+
 document.addEventListener("DOMContentLoaded", function () {
+  // Contact form submission
   const form = document.getElementById("contactForm");
   const statusMessage = document.getElementById("status");
   const messageInput = form.message;
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   messageInput.setAttribute("maxlength", "300");
   messageInput.addEventListener("input", updateCharCount);
-  updateCharCount(); // Init on load
+  updateCharCount();
 
   form.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -112,4 +112,60 @@ document.addEventListener("DOMContentLoaded", function () {
       },
     );
   });
+  // Smooth scroll for anchor links
+  const links = document.querySelectorAll('a[href^="#"]');
+  links.forEach((link) => {
+    link.addEventListener("click", function (event) {
+      event.preventDefault();
+      const targetId = this.getAttribute("href").substring(1);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    });
+  });
+  // Hamburger menu
+  const navToggle = document.getElementById("navToggle");
+  const navLinks = document.querySelector(".nav-links");
+  navToggle.addEventListener("click", function () {
+    navLinks.classList.toggle("open");
+    navToggle.classList.toggle("active");
+  });
+
+  // Optional: Close nav on link click (mobile)
+  document.querySelectorAll(".nav-links a").forEach((link) => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      navToggle.classList.remove("active");
+    });
+  });
+
+  const themeToggle = document.getElementById("themeToggle");
+  const themeIcon = document.getElementById("themeIcon");
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const savedTheme = localStorage.getItem("theme");
+  let darkMode = savedTheme ? savedTheme === "dark" : prefersDark;
+
+  function applyTheme() {
+    if (darkMode) {
+      document.body.classList.add("dark-mode");
+      themeIcon.classList.remove("fa-moon");
+      themeIcon.classList.add("fa-sun");
+    } else {
+      document.body.classList.remove("dark-mode");
+      themeIcon.classList.remove("fa-sun");
+      themeIcon.classList.add("fa-moon");
+    }
+  }
+
+  themeToggle.addEventListener("click", function () {
+    darkMode = !darkMode;
+    localStorage.setItem("theme", darkMode ? "dark" : "light");
+    applyTheme();
+  });
+
+  applyTheme();
 });
