@@ -152,12 +152,12 @@ document.addEventListener("DOMContentLoaded", function () {
   function applyTheme() {
     if (darkMode) {
       document.body.classList.add("dark-mode");
-      themeIcon.classList.remove("fa-moon");
-      themeIcon.classList.add("fa-sun");
-    } else {
-      document.body.classList.remove("dark-mode");
       themeIcon.classList.remove("fa-sun");
       themeIcon.classList.add("fa-moon");
+    } else {
+      document.body.classList.remove("dark-mode");
+      themeIcon.classList.remove("fa-moon");
+      themeIcon.classList.add("fa-sun");
     }
   }
 
@@ -168,4 +168,17 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   applyTheme();
+
+  fetch('experience.html').then(res => res.text()).then(data => {
+    document.getElementById('experience').outerHTML = data;
+    if (window.renderExperience) window.renderExperience();
+  });
+  fetch("testimonials.html")
+    .then((res) => res.text())
+    .then((data) => {
+      document.getElementById("testimonials").outerHTML = data;
+      if (window.setupCarousel) window.setupCarousel();
+    });
+    
 });
+
