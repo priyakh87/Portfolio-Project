@@ -1,3 +1,5 @@
+import { initializeAnimations, revealAll } from "./modules/animations.js";
+
 import { setupContactForm } from "./modules/contact-form.js";
 import { setupNavigation } from "./modules/navigation.js";
 import { loadSections } from "./modules/section-loader.js";
@@ -21,8 +23,22 @@ async function startPortfolio() {
 
   setupContactForm();
   updateFooterYear();
+
+  try {
+    initializeAnimations();
+  } catch (error) {
+    revealAll();
+    console.error("Scroll animation setup failed:", error);
+  } finally {
+    window.requestAnimationFrame(() => {
+      document.documentElement.classList.add("page-ready");
+    });
+  }
 }
 
 startPortfolio().catch((error) => {
+  document.documentElement.classList.add("page-ready");
+  revealAll();
+
   console.error("Portfolio startup failed:", error);
 });
