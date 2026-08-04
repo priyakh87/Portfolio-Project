@@ -1211,6 +1211,106 @@ section {
   font-size: 0.88rem;
 }
 
+.testimonial {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+}
+
+.testimonial-card {
+  position: relative;
+  max-width: 970px;
+  overflow: hidden;
+  margin-inline: auto;
+  padding: clamp(34px, 6vw, 64px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-large);
+  background: var(--surface-strong);
+  box-shadow: var(--shadow);
+}
+
+.testimonial-quote-mark {
+  position: absolute;
+  top: -18px;
+  right: 34px;
+  color: var(--accent-soft);
+  font-family: Georgia, serif;
+  font-size: clamp(7rem, 18vw, 12rem);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.testimonial-figure {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 28px;
+}
+
+.testimonial-rating {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--accent-dark);
+}
+
+.testimonial-stars {
+  letter-spacing: 0.16em;
+}
+
+.testimonial-rating strong {
+  color: var(--text);
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.9rem;
+}
+
+.testimonial-quote {
+  max-width: 850px;
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(1.35rem, 2.8vw, 2.05rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.48;
+}
+
+.testimonial-attribution {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.testimonial-person {
+  display: grid;
+  gap: 2px;
+}
+
+.testimonial-person strong {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1rem;
+}
+
+.testimonial-person span,
+.testimonial-source {
+  color: var(--text-soft);
+  font-size: 0.78rem;
+}
+
+.testimonial-source {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  text-align: right;
+}
+
+.testimonial-source i {
+  color: var(--accent-dark);
+}
+
 .contact {
   position: relative;
   overflow: hidden;
@@ -1845,6 +1945,27 @@ body.dark-mode {
 
   .skill-group {
     min-height: 230px;
+  }
+
+    .testimonial-card {
+    padding: 30px 20px;
+    border-radius: var(--radius-medium);
+  }
+
+  .testimonial-quote-mark {
+    top: -8px;
+    right: 14px;
+    font-size: 7rem;
+  }
+
+  .testimonial-attribution {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .testimonial-source {
+    justify-content: flex-start;
+    text-align: left;
   }
 
   .contact form {

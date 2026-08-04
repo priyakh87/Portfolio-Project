@@ -78,3 +78,14 @@ test("index uses the modular app entry", async () => {
 
   assert.doesNotMatch(index, /src="js\/main\.js"/);
 });
+
+test("testimonial stylesheet defines its card and mobile treatment", async () => {
+  const css = await readProjectFile("css/main.css");
+
+  assert.match(css, /\.testimonial-card\s*\{/);
+  assert.match(css, /\.testimonial-quote\s*\{/);
+  assert.match(css, /\.testimonial-attribution\s*\{/);
+
+  const cardRules = css.match(/\.testimonial-card\s*\{/g) ?? [];
+  assert.ok(cardRules.length >= 2);
+});
