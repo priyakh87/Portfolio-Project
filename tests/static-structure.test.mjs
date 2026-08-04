@@ -10,6 +10,7 @@ const sectionMarkers = {
   projects: 'id="projects-title"',
   experience: 'id="experience-title"',
   skills: 'id="skills-title"',
+  testimonial: 'id="testimonial-title"',
   contact: 'id="contact-title"',
 };
 
@@ -17,7 +18,7 @@ async function readProjectFile(relativePath) {
   return readFile(new URL(relativePath, projectRoot), "utf8");
 }
 
-test("all six section partials exist and contain their heading", async () => {
+test("all seven section partials exist and contain their heading", async () => {
   for (const [name, headingMarker] of Object.entries(sectionMarkers)) {
     const content = await readProjectFile(`sections/${name}.html`);
     assert.match(content, new RegExp(headingMarker));
@@ -33,15 +34,41 @@ test("section partials contain inner markup only", async () => {
     assert.doesNotMatch(content, /<!doctype/i);
   }
 });
-test("index contains six semantic section shells", async () => {
+test("index contains seven semantic section shells", async () => {
   const index = await readProjectFile("index.html");
 
   const shellMatches =
     index.match(/data-section-src="sections\/[a-z-]+\.html"/g) ?? [];
 
-  assert.equal(shellMatches.length, 6);
+  assert.equal(shellMatches.length, 7);
   assert.match(index, /id="experience"/);
   assert.match(index, /href="#experience">Experience<\/a>/);
+  assert.match(index, /id="testimonial"/);
+  assert.match(index, /data-section-src="sections\/testimonial\.html"/);
+});
+
+
+test("testimonial uses the approved review and semantic markup", async () => {
+  const testimonial = await readProjectFile("sections/testimonial.html");
+
+  assert.match(testimonial, /<figure\b/i);
+  assert.match(testimonial, /<blockquote\b/i);
+  assert.match(testimonial, /<figcaption\b/i);
+  assert.match(testimonial, /aria-label="Rated 5 out of 5 stars"/);
+  assert.match(testimonial, /Jijin Baiju/);
+  assert.match(testimonial, /adds real value to any team\./);
+  assert.doesNotMatch(testimonial, /<img\b/i);
+  assert.doesNotMatch(testimonial, /href="#"/i);
+});
+
+test("testimonial appears between skills and contact", async () => {
+  const index = await readProjectFile("index.html");
+  const skillsPosition = index.indexOf('id="skills"');
+  const testimonialPosition = index.indexOf('id="testimonial"');
+  const contactPosition = index.indexOf('id="contact"');
+
+  assert.ok(skillsPosition < testimonialPosition);
+  assert.ok(testimonialPosition < contactPosition);
 });
 
 test("index uses the modular app entry", async () => {
